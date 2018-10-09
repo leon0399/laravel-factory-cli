@@ -1,5 +1,10 @@
 # Laravel Factory CLI
 
+[![Total Downloads](https://poser.pugx.org/leon0399/laravel-factory-cli/downloads)](https://packagist.org/packages/leon0399/laravel-factory-cli)
+[![Latest Stable Version](https://poser.pugx.org/leon0399/laravel-factory-cli/v/stable)](https://packagist.org/packages/leon0399/laravel-factory-cli)
+[![Latest Unstable Version](https://poser.pugx.org/leon0399/laravel-factory-cli/v/unstable)](https://packagist.org/packages/leon0399/laravel-factory-cli)
+[![License](https://poser.pugx.org/leon0399/laravel-factory-cli/license)](https://packagist.org/packages/leon0399/laravel-factory-cli)
+
 Command line interface for Factories. No more Tinker!
 
 ## Installation
