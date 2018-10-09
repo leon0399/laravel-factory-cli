@@ -14,19 +14,19 @@ $ composer require leon0399/laravel-factory-cli
 
 To create a single instance of class:
 
-```php
+```bash
 $ php artisan factory:create App\User
 ```
 
 Or you can omit the namespace:
 
-```php
+```bash
 $ php artisan factory:create User
 ```
 
 To create multiple instances of class, use `-a`:
 
-```php
+```bash
 $ php artisan factory:create User -a 10
 ```
 
