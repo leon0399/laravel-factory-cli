@@ -1,0 +1,30 @@
+{
+    "name": "leon0399/laravel-factory-cli",
+    "description": "Command line interface for Factories. No more Tinker!",
+    "type": "library",
+    "require": {
+        "laravel/framework": "^5.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Leon0399\\Laravel\\FactoryCLI\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Leon0399\\Laravel\\FactoryCLI\\FactoryCLIServiceProvider"
+            ]
+        }
+    }
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leonid Meleshin",
+            "email": "leon.03.99@gmail.com"
+        }
+    ]
+}
