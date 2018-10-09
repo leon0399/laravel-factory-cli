@@ -7,7 +7,7 @@ Command line interface for Factories. No more Tinker!
 Install the latest version with
 
 ```bash
-$ composer require leon0399/laravel-factory-cli
+$ composer require --dev leon0399/laravel-factory-cli
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ $ composer require leon0399/laravel-factory-cli
 To create a single instance of class:
 
 ```bash
-$ php artisan factory:create App\User
+$ php artisan factory:create App/User
 ```
 
 Or you can omit the namespace:
