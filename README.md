@@ -1,7 +1,34 @@
 # Laravel Factory CLI
+
 Command line interface for Factories. No more Tinker!
 
+## Installation
+
+Install the latest version with
+
+```bash
+$ composer require leon0399/laravel-factory-cli
+```
+
 ## Usage
+
+To create a single instance of class:
+
+```php
+$ php artisan factory:create App\User
+```
+
+Or you can omit the namespace:
+
+```php
+$ php artisan factory:create User
+```
+
+To create multiple instances of class, use `-a`:
+
+```php
+$ php artisan factory:create User -a 10
+```
 
 ## License
 

@@ -49,8 +49,8 @@ class FactoryCreateCommand extends Command
         $class = str_replace('/', '\\', $class);
 
         if (!class_exists($class)) {
-            if (class_exists('App\\Models\\' . $class)) {
-                $class = 'App\\Models\\' . $class;
+            if (class_exists('App\\' . $class)) {
+                $class = 'App\\' . $class;
             } else {
                 throw new \InvalidArgumentException("Class {$class} not exists");
             }
