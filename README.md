@@ -35,6 +35,11 @@ To create multiple instances of class, use `-a`:
 $ php artisan factory:create User -a 10
 ```
 
+## To-Do
+
+- [ ] Configuration
+  - [ ] Changing default namespace
+
 ## License
 
     MIT License
