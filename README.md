@@ -23,7 +23,7 @@ To create a single instance of class:
 $ php artisan factory:create App/User
 ```
 
-Or you can omit the namespace:
+Or you can omit the namespace. To change default namespace see [Configuration](#configuration):
 
 ```bash
 $ php artisan factory:create User
@@ -35,10 +35,19 @@ To create multiple instances of class, use `-a`:
 $ php artisan factory:create User -a 10
 ```
 
+## Configuration
+
+Feel free to publish configuration:
+
+```bash
+$ php artisan vendor:publish --provider="Leon0399\Laravel\FactoryCLI\FactoryCLIServiceProvider" --tag=config
+```
+
 ## To-Do
 
-- [ ] Configuration
-  - [ ] Changing default namespace
+- [x] Configuration
+  - [x] Changing default namespace
+  - [ ] Your ideas
 
 ## License
 
