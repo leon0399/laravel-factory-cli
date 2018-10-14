@@ -25,13 +25,18 @@ class FactoryCreateCommand extends Command
      */
     protected $description = 'Create a collection of models and persist them to the database';
 
+    /** @var \Illuminate\Config\Repository */
+    protected $config;
+
     /**
      * Create a new command instance.
      *
-     * @return void
+     * @param \Illuminate\Config\Repository $config
      */
-    public function __construct()
+    public function __construct($config)
     {
+        $this->config = $config;
+
         parent::__construct();
     }
 
@@ -49,8 +54,10 @@ class FactoryCreateCommand extends Command
         $class = str_replace('/', '\\', $class);
 
         if (!class_exists($class)) {
-            if (class_exists('App\\' . $class)) {
-                $class = 'App\\' . $class;
+            $namespace = $this->config->get('factory-cli.namespace');
+
+            if (class_exists($namespace . $class)) {
+                $class = $namespace . $class;
             } else {
                 throw new \InvalidArgumentException("Class {$class} not exists");
             }

@@ -17,7 +17,14 @@ class FactoryCLIServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $configPath = __DIR__ . '/../config/factory-cli.php';
+        if (function_exists('config_path')) {
+            $publishPath = config_path('factory-cli.php');
+        } else {
+            $publishPath = base_path('config/factory-cli.php');
+        }
 
+        $this->publishes([$configPath => $publishPath], 'config');
     }
 
     /**
@@ -27,10 +34,13 @@ class FactoryCLIServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $configPath = __DIR__ . '/../config/factory-cli.php';
+        $this->mergeConfigFrom($configPath, 'factory-cli');
+
         $this->app->singleton(
             'command.factory-cli.create',
             function ($app) {
-                return new Console\FactoryCreateCommand();
+                return new Console\FactoryCreateCommand($app['config']);
             }
         );
 
