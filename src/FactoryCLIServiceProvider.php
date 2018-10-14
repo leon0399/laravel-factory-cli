@@ -8,6 +8,12 @@ use Illuminate\Support\ServiceProvider;
 
 class FactoryCLIServiceProvider extends ServiceProvider
 {
+    const APP_KEY = 'factory-cli';
+
+    const CONFIG_PATH = __DIR__ . '/../config/' . self::APP_KEY . '.php';
+
+    const COMMAND_CREATE = 'command.' . self::APP_KEY . '.create';
+
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -17,14 +23,13 @@ class FactoryCLIServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $configPath = __DIR__ . '/../config/factory-cli.php';
         if (function_exists('config_path')) {
-            $publishPath = config_path('factory-cli.php');
+            $publishPath = config_path(self::APP_KEY . '.php');
         } else {
-            $publishPath = base_path('config/factory-cli.php');
+            $publishPath = base_path('config/' . self::APP_KEY . '.php');
         }
 
-        $this->publishes([$configPath => $publishPath], 'config');
+        $this->publishes([self::CONFIG_PATH => $publishPath], 'config');
     }
 
     /**
@@ -34,18 +39,17 @@ class FactoryCLIServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $configPath = __DIR__ . '/../config/factory-cli.php';
-        $this->mergeConfigFrom($configPath, 'factory-cli');
+        $this->mergeConfigFrom(self::CONFIG_PATH, self::APP_KEY);
 
         $this->app->singleton(
-            'command.factory-cli.create',
+            self::COMMAND_CREATE,
             function ($app) {
                 return new Console\FactoryCreateCommand($app['config']);
             }
         );
 
         $this->commands(
-            'command.factory-cli.create'
+            self::COMMAND_CREATE
         );
     }
 
@@ -56,7 +60,7 @@ class FactoryCLIServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array('command.factory-cli.create');
+        return [self::COMMAND_CREATE];
     }
 
 }
